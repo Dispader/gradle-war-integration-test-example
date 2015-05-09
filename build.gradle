@@ -1,3 +1,9 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'eclipse'
+
+repositories { jcenter() }
+
+dependencies {
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet-core:2.17'
+}
