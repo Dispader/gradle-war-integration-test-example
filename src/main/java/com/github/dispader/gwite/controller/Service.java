@@ -1,17 +1,19 @@
 package com.github.dispader.gwite.controller;
 
+import java.util.Map;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("service")
+@Path("env")
 public class Service {
     
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getIt() {
-        return "Got it!";
+    @Produces(MediaType.APPLICATION_JSON)
+    public Map<String, String> getEnv() {
+        return System.getenv();
     }
     
 }
