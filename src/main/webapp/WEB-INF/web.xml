@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<!-- This web.xml file should not required when using a Servlet 3.0 container.
-     we should see implementation details at http://jersey.java.net/nonav/documentation/latest/jax-rs.html ,
-     but this documentation seems missing-->
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 

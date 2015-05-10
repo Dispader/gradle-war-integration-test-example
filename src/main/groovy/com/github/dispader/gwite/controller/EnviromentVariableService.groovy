@@ -2,7 +2,7 @@ package com.github.dispader.gwite.controller
 
 import javax.ws.rs.*
 
-@Path('environmentVariables')
-class EnvironmentVariablesService {
+@Path('environmentVariable')
+class EnvironmentVariableService {
     @Produces(['application/json']) @GET def get() { System.getenv() }
 }
