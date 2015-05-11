@@ -10,3 +10,5 @@ The simple REST service framework is included so that one can introspect the var
 
 * `git clone https://github.com/Dispader/gradle-war-integration-test-example.git`
 * `./gradlew jettyRun`
+
+[![Analytics](https://ga-beacon.appspot.com/UA-61184208-1/chromeskel_a/readme)](https://github.com/igrigorik/ga-beacon)
