@@ -1,0 +1,32 @@
+sourceSets {
+    integrationTest {
+        java {
+            compileClasspath += main.output
+            runtimeClasspath += main.output
+        }
+    }
+}
+
+configurations {
+    integrationTestCompile.extendsFrom compile
+    integrationTestRuntime.extendsFrom runtime
+}
+
+task integrationTest(type:Test) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+    outputs.upToDateWhen { false }
+}
+
+integrationTest.testLogging.exceptionFormat = 'full'
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
+// add your dependencies to the `integrationTestCompile` resources set
+//
+// While we could inherit them, or mix them with `testCompile` resources, we choose to separate them.
+//
+dependencies {
+    integrationTestCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+}
