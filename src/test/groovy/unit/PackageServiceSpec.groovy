@@ -1,14 +1,14 @@
 package unit
 
 import spock.lang.Specification
-import com.github.dispader.gwite.controller.PackagesService
+import com.github.dispader.gwite.controller.PackageService
 
 class PackageServiceSpec extends Specification
 {
     
     def 'the package service returns runtime packages'() {
         when:
-            def service = new PackagesService()
+            def service = new PackageService()
             def packages = service.get()
         then:
             notThrown(Exception)
@@ -17,7 +17,7 @@ class PackageServiceSpec extends Specification
     
     def 'the package service returns some expected test runtime packages'() {
         when:
-            def service = new PackagesService()
+            def service = new PackageService()
             def packages = service.get()
         then:
             expectedPackage in packages
@@ -27,7 +27,7 @@ class PackageServiceSpec extends Specification
     
     def 'the package service does not return Jetty envrionment properties'() {
         when:
-            def service = new PackagesService()
+            def service = new PackageService()
             def packages = service.get()
         then:
             ! ( expectedPackage in packages )
