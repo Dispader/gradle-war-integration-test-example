@@ -1,4 +1,4 @@
-package spock
+package unit
 
 import spock.lang.Specification
 import com.github.dispader.gwite.controller.JavaPropertyService
