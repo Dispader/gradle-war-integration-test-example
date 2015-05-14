@@ -3,7 +3,7 @@ package com.github.dispader.gwite.controller
 import javax.ws.rs.*
 
 @Path('package')
-class PackagesService {
+class PackageService {
     
     @Produces(['application/json']) @GET def get() {
         def runtimePackages = ClassLoader.getClassLoader(this.class).getPackages().collect() { it.name }
