@@ -46,6 +46,7 @@ import org.gradle.api.plugins.jetty.internal.Monitor // WORKAROUND: GRADLE-2263
      }
 }
 tasks.jettyRun.description = 'Assembles the webapp and deploys it to Jetty.'
+tasks.jettyRun.dependsOn jettyStop
 
 integrationTest.doFirst {
     tasks.jettyRun.daemon = true
