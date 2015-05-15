@@ -14,5 +14,3 @@ dependencies {
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.3'
     integrationTestCompile 'org.spockframework:spock-core:1.0-groovy-2.3'
 }
-test.testLogging.exceptionFormat = 'full'
-

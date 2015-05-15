@@ -20,9 +20,9 @@ task integrationTest(type:Test) {
     outputs.upToDateWhen { false }
 }
 
-integrationTest.testLogging.exceptionFormat = 'full'
 tasks.withType(Test) {
     reports.html.destination = file("${reporting.baseDir}/${name}")
+    testLogging.exceptionFormat = 'full'
 }
 
 // add your dependencies to the `integrationTestCompile` resources set
