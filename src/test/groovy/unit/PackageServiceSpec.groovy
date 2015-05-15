@@ -6,7 +6,7 @@ import com.github.dispader.gwite.controller.PackageService
 class PackageServiceSpec extends Specification
 {
     
-    def 'the package service returns runtime packages'() {
+    def 'the package service class returns runtime packages'() {
         when:
             def service = new PackageService()
             def packages = service.get()
@@ -15,7 +15,7 @@ class PackageServiceSpec extends Specification
             packages != null
     }
     
-    def 'the package service returns some expected test runtime packages'() {
+    def 'the package service class returns some expected test runtime packages'() {
         when:
             def service = new PackageService()
             def packages = service.get()
@@ -25,7 +25,7 @@ class PackageServiceSpec extends Specification
             expectedPackage << ['com.github.dispader.gwite.controller', 'groovy.lang', 'spock.lang']
     }
     
-    def 'the package service does not return Jetty envrionment properties'() {
+    def 'the package service class does not return Jetty envrionment properties'() {
         when:
             def service = new PackageService()
             def packages = service.get()

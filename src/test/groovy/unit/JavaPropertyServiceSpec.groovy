@@ -6,7 +6,7 @@ import com.github.dispader.gwite.controller.JavaPropertyService
 class JavaPropertyServiceSpec extends Specification
 {
     
-    def 'the Java property service returns properties'() {
+    def 'the Java property service class returns properties'() {
         when:
             def service = new JavaPropertyService()
             def javaProperties = service.get()
@@ -15,7 +15,7 @@ class JavaPropertyServiceSpec extends Specification
             javaProperties != null
     }
     
-    def 'the Java property service returns some expected properties'() {
+    def 'the Java property service class returns some expected properties'() {
         when:
             def service = new JavaPropertyService()
             def javaProperties = service.get()
@@ -25,7 +25,7 @@ class JavaPropertyServiceSpec extends Specification
             expectedProperty << ['java.runtime.name', 'java.vm.name', 'java.version']
     }
     
-    def 'the Java property service does not return fishy properties'() {
+    def 'the Java property service class does not return fishy properties'() {
         when:
             def service = new JavaPropertyService()
             def javaProperties = service.get()

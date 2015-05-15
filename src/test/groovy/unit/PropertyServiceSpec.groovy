@@ -6,7 +6,7 @@ import com.github.dispader.gwite.controller.PropertyService
 class PropertyServiceSpec extends Specification
 {
     
-    def 'the properties service returns a set of loaded properties'() {
+    def 'the properties service class returns a set of loaded properties'() {
         when:
             def service = new PropertyService()
             def properties = service.get()

@@ -6,7 +6,7 @@ import com.github.dispader.gwite.controller.EnvironmentVariableService
 class EnvironmentVariableServiceSpec extends Specification
 {
     
-    def 'the envrionment service can return a full environment map'() {
+    def 'the envrionment service class can return a full environment map'() {
         when:
             def service = new EnvironmentVariableService()
             def environment = service.get()
@@ -15,7 +15,7 @@ class EnvironmentVariableServiceSpec extends Specification
             environment != null
     }
     
-    def 'the envrionment service returns some expected values'() {
+    def 'the envrionment service class returns some expected values'() {
         when:
             def service = new EnvironmentVariableService()
             def environment = service.get()
@@ -25,7 +25,7 @@ class EnvironmentVariableServiceSpec extends Specification
             expecteEnvironmentVariable << ['HOME', 'JAVA_HOME']
     }
     
-    def 'the envrionment service does not return fishy values'() {
+    def 'the envrionment service class does not return fishy values'() {
         when:
             def service = new EnvironmentVariableService()
             def environment = service.get()
