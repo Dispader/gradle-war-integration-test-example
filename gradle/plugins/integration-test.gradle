@@ -1,5 +1,6 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
+apply plugin: 'eclipse'
 
 configurations {
     integrationTestCompile.extendsFrom compile
