@@ -1,3 +1,5 @@
+apply plugin: 'jetty'
+
 configurations {
     integrationTestCompile.extendsFrom compile
     integrationTestRuntime.extendsFrom runtime
