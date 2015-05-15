@@ -4,9 +4,9 @@ sourceSets {
             compileClasspath += main.output
             runtimeClasspath += main.output
         }
+        resources.srcDir file('src/integrationTest/resources')
     }
 }
-
 configurations {
     integrationTestCompile.extendsFrom compile
     integrationTestRuntime.extendsFrom runtime
@@ -53,6 +53,36 @@ integrationTest.doFirst {
 }
 integrationTest.finalizedBy {
     tasks.jettyStop.execute()
+}
+
+//jettyRun { classpath += configurations.integrationTestRuntime.classpath }
+
+// WORKAROUND: GRADLE-6986
+// @see https://discuss.gradle.org/t/eclipse-generated-files-should-be-put-in-the-same-place-as-the-gradle-generated-files/6986
+Map pathMappings = [:];
+SourceSetContainer sourceSets = project.sourceSets;
+sourceSets.each { SourceSet sourceSet ->
+    String relativeJavaOutputDirectory = project.relativePath(sourceSet.output.classesDir);
+    String relativeResourceOutputDirectory = project.relativePath(sourceSet.output.resourcesDir);
+    sourceSet.java.getSrcDirTrees().each { DirectoryTree sourceDirectory ->
+        String relativeSrcPath = project.relativePath(sourceDirectory.dir.absolutePath);
+        pathMappings[relativeSrcPath] = relativeJavaOutputDirectory;
+    }
+    sourceSet.resources.getSrcDirTrees().each { DirectoryTree resourceDirectory ->
+        String relativeResourcePath = project.relativePath(resourceDirectory.dir.absolutePath);
+        pathMappings[relativeResourcePath] = relativeResourceOutputDirectory;
+    }
+}
+project.eclipse.classpath.file {
+    whenMerged { classpath ->
+        classpath.entries.findAll { entry ->
+            return entry.kind == 'src';
+        }.each { entry ->
+            if(pathMappings.containsKey(entry.path)) {
+                entry.output = pathMappings[entry.path];
+            }
+        }
+    }
 }
 
 import org.gradle.plugins.ide.eclipse.model.EclipseModel
