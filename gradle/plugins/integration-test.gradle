@@ -54,3 +54,11 @@ integrationTest.doFirst {
 integrationTest.doLast {
     tasks.jettyStop.execute()
 }
+
+import org.gradle.plugins.ide.eclipse.model.EclipseModel
+def eclipseModel = project.extensions.findByType EclipseModel
+if (eclipseModel) {
+    def eclipseClasspath = eclipseModel.classpath;
+    eclipseClasspath.plusConfigurations.add project.configurations.integrationTestCompile
+    eclipseClasspath.plusConfigurations.add project.configurations.integrationTestRuntime
+}

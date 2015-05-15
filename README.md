@@ -17,8 +17,5 @@ The simple REST service framework is included so that one can introspect the var
 # known issues
 
 * on failed integration test runs, the Jetty server fails to halt, and must be killed manually
-* generated Eclipse files correctly set up integration sources, but fail to register these sources with Eclipse
-  * this causes Eclipse to be unable to view the files as raw files, or in a source tree
-  * workaround: open the integration tests from the `Navigator` view
 
 [![Analytics](https://ga-beacon.appspot.com/UA-61184208-1/chromeskel_a/readme)](https://github.com/igrigorik/ga-beacon)
