@@ -1,5 +1,3 @@
-apply plugin: 'groovy'
-
 apply from: 'gradle/plugins/integration-test.gradle' // local integration tests plugin
 
 repositories { jcenter() }
