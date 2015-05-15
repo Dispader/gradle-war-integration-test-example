@@ -13,6 +13,8 @@ configurations {
 }
 
 task integrationTest(type:Test) {
+    group = 'Verification'
+    description = 'Deploys the application to Jetty, and runs the integration tests.'
     testClassesDir = sourceSets.integrationTest.output.classesDir
     classpath = sourceSets.integrationTest.runtimeClasspath
     outputs.upToDateWhen { false }
@@ -43,6 +45,7 @@ import org.gradle.api.plugins.jetty.internal.Monitor // WORKAROUND: GRADLE-2263
          monitor.start();
      }
 }
+tasks.jettyRun.description = 'Assembles the webapp and deploys it to Jetty.'
 
 integrationTest.doFirst {
     tasks.jettyRun.daemon = true
