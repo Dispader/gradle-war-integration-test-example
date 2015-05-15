@@ -19,7 +19,6 @@ class PackageServiceSpec extends Specification
             expectedPackage in response.data
         where:
             expectedPackage << [ 'com.github.dispader.gwite.controller',
-                                 'javax.ws.rs',
                                  'org.glassfish.jersey',
                                  'com.fasterxml.jackson.core' ]
     }
