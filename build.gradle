@@ -1,5 +1,4 @@
 apply plugin: 'groovy'
-apply plugin: 'war'
 apply plugin: 'eclipse'
 
 apply from: 'gradle/plugins/integration-test.gradle' // local integration tests plugin
