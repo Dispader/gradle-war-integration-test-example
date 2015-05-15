@@ -29,4 +29,25 @@ tasks.withType(Test) {
 //
 dependencies {
     integrationTestCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    integrationTestCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7+'
+}
+
+import org.gradle.api.plugins.jetty.internal.Monitor // WORKAROUND: GRADLE-2263
+// WORKAROUND: GRADLE-2263
+// @see http://issues.gradle.org/browse/GRADLE-2263
+[jettyRun, jettyRunWar, jettyStop]*.stopPort = 8081
+[jettyRun, jettyRunWar, jettyStop]*.stopKey = 'stopKey'
+[jettyRun, jettyRunWar]*.doLast {
+     if (getStopPort() != null && getStopPort() > 0 && getStopKey() != null) {
+         Monitor monitor = new Monitor(getStopPort(), getStopKey(), server.getProxiedObject());
+         monitor.start();
+     }
+}
+
+integrationTest.doFirst {
+    tasks.jettyRun.daemon = true
+    tasks.jettyRun.execute()
+}
+integrationTest.doLast {
+    tasks.jettyStop.execute()
 }
