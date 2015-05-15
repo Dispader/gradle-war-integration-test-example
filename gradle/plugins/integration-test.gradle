@@ -95,6 +95,7 @@ project.eclipse.classpath.file {
         }
     }
 }
+tasks.eclipse.dependsOn cleanEclipse
 
 import org.gradle.plugins.ide.eclipse.model.EclipseModel
 def eclipseModel = project.extensions.findByType EclipseModel
