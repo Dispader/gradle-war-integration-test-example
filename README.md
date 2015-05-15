@@ -14,8 +14,4 @@ The simple REST service framework is included so that one can introspect the var
 * `./gradlew test` - Runs the unit tests.
 * `./gradlew integrationTest` - Deploys the application to Jetty, and runs the integration tests.
 
-# known issues
-
-* on failed integration test runs, the Jetty server fails to halt, and must be killed manually
-
 [![Analytics](https://ga-beacon.appspot.com/UA-61184208-1/chromeskel_a/readme)](https://github.com/igrigorik/ga-beacon)

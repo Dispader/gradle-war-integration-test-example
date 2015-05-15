@@ -51,7 +51,7 @@ integrationTest.doFirst {
     tasks.jettyRun.daemon = true
     tasks.jettyRun.execute()
 }
-integrationTest.doLast {
+integrationTest.finalizedBy {
     tasks.jettyStop.execute()
 }
 
