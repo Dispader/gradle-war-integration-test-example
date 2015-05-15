@@ -13,7 +13,7 @@ class PropertyServiceSpec extends Specification
         then:
             notThrown(Exception)
             properties != null
-            properties['name'] == 'main property value'
+            properties['name'] == 'unit test property value'
     }
     
 }
