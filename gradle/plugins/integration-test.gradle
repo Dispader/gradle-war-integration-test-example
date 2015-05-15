@@ -1,3 +1,8 @@
+configurations {
+    integrationTestCompile.extendsFrom compile
+    integrationTestRuntime.extendsFrom runtime
+}
+
 sourceSets {
     integrationTest {
         java {
@@ -7,14 +12,11 @@ sourceSets {
         resources.srcDir file('src/integrationTest/resources')
     }
 }
-configurations {
-    integrationTestCompile.extendsFrom compile
-    integrationTestRuntime.extendsFrom runtime
-}
 
 task integrationTest(type:Test) {
     group = 'Verification'
     description = 'Deploys the application to Jetty, and runs the integration tests.'
+    dependsOn 'assemble', 'integrationTestClasses'
     testClassesDir = sourceSets.integrationTest.output.classesDir
     classpath = sourceSets.integrationTest.runtimeClasspath
     outputs.upToDateWhen { false }
@@ -56,7 +58,7 @@ integrationTest.finalizedBy {
     tasks.jettyStop.execute()
 }
 
-//jettyRun { classpath += configurations.integrationTestRuntime.classpath }
+jettyRun { classpath = sourceSets.integrationTest.runtimeClasspath }
 
 // WORKAROUND: GRADLE-6986
 // @see https://discuss.gradle.org/t/eclipse-generated-files-should-be-put-in-the-same-place-as-the-gradle-generated-files/6986
