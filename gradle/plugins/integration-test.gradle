@@ -58,7 +58,10 @@ integrationTest.finalizedBy {
     tasks.jettyStop.execute()
 }
 
-jettyRun { classpath = sourceSets.integrationTest.runtimeClasspath }
+jettyRun {
+    description = 'Assembles the webapp, using the integraiton test configuration, and deploys it to Jetty.'
+    classpath = sourceSets.integrationTest.runtimeClasspath
+}
 
 // WORKAROUND: GRADLE-6986
 // @see https://discuss.gradle.org/t/eclipse-generated-files-should-be-put-in-the-same-place-as-the-gradle-generated-files/6986

@@ -10,8 +10,9 @@ The simple REST service framework is included so that one can introspect the var
 
 * `git clone https://github.com/Dispader/gradle-war-integration-test-example.git`
 * `./gradlew eclipse` - Generates all Eclipse files.
-* `./gradlew jettyRun` - Assembles the webapp and deploys it to Jetty.
+* `./gradlew jettyRun` - Assembles the webapp, using the integraiton test configuration, and deploys it to Jetty.
 * `./gradlew test` - Runs the unit tests.
 * `./gradlew integrationTest` - Deploys the application to Jetty, and runs the integration tests.
+* `./gradlew jettyRunWar` - Assembles the webapp into a war and deploys it to Jetty.  (default configuration)
 
 [![Analytics](https://ga-beacon.appspot.com/UA-61184208-1/chromeskel_a/readme)](https://github.com/igrigorik/ga-beacon)
