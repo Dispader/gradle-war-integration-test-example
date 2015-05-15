@@ -15,4 +15,12 @@ The simple REST service framework is included so that one can introspect the var
 * `./gradlew integrationTest` - Deploys the application to Jetty, and runs the integration tests.
 * `./gradlew jettyRunWar` - Assembles the webapp into a war and deploys it to Jetty.  (default configuration)
 
+# use the plugin in your project
+
+Add it to your project by including it in `./gradle/plugins/` or via URL:
+
+```Gradle
+apply from: 'https://raw.githubusercontent.com/Dispader/gradle-war-integration-test-example/master/gradle/plugins/integration-test.gradle'
+```
+
 [![Analytics](https://ga-beacon.appspot.com/UA-61184208-1/chromeskel_a/readme)](https://github.com/igrigorik/ga-beacon)
