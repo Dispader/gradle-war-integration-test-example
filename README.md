@@ -23,4 +23,13 @@ Add it to your project by including it in `./gradle/plugins/` or via URL:
 apply from: 'https://raw.githubusercontent.com/Dispader/gradle-war-integration-test-example/master/gradle/plugins/integration-test.gradle'
 ```
 
+place your tests and resources in the `src/integrationTests` tree, and declare dependencies in your build:
+
+```Gradle
+dependencies {
+    integrationTestCompile 'org.spockframework:spock-core:1.0-groovy-2.3'
+    integrationTestCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+}
+```
+
 [![Analytics](https://ga-beacon.appspot.com/UA-61184208-1/chromeskel_a/readme)](https://github.com/igrigorik/ga-beacon)
