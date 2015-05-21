@@ -32,13 +32,10 @@ tasks.withType(Test) {
     testLogging.exceptionFormat = 'full'
 }
 
-// add your dependencies to the `integrationTestCompile` resources set
-//
 // While we could inherit them, or mix them with `testCompile` resources, we choose to separate them.
-//
 dependencies {
-    integrationTestCompile 'org.spockframework:spock-core:1.0-groovy-2.3'
-    integrationTestCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7+'
+//    add your dependencies to the `integrationTestCompile` resources set to your main build, e.g.:
+//    integrationTestCompile 'org.spockframework:spock-core:1.0-groovy-2.3'
 }
 
 import org.gradle.api.plugins.jetty.internal.Monitor // WORKAROUND: GRADLE-2263
