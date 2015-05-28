@@ -29,13 +29,16 @@ task integrationTest(type:Test) {
     group = 'Verification'
     description = 'Deploys the application to Jetty, and runs the integration tests.'
     dependsOn 'assemble', 'integrationTestClasses'
-    testClassesDir = sourceSets.integrationTest.output.classesDir
+    
     classpath = sourceSets.integrationTest.runtimeClasspath
-    outputs.upToDateWhen { false }
+    
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+    outputs.dir reports.html.destination
+    //outputs.upToDateWhen { false }
 }
 
 tasks.withType(Test) {
-    reports.html.destination = file("${reporting.baseDir}/${name}")
     testLogging.exceptionFormat = 'full'
 }
 
