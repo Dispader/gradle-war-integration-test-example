@@ -1,7 +1,7 @@
 /**
- * This Gradle script plugin (https://gradle.org/docs/current/userguide/plugins.html#N11915) 
- * focuses on the narrow job of splitting integration test resources from main and unit tests 
- * resources, as well as providing an appropriate Jetty runtime environment for executing 
+ * This Gradle script plugin (https://gradle.org/docs/current/userguide/plugins.html#N11915)
+ * focuses on the narrow job of splitting integration test resources from main and unit tests
+ * resources, as well as providing an appropriate Jetty runtime environment for executing
  * integration tests.
  */
 
